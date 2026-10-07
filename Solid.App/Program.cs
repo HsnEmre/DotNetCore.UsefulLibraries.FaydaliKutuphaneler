@@ -2,7 +2,7 @@
 
 
 
-using Solid.App.LSPGod;
+using Solid.App.DIPGodAndBad;
 
 //SalaryCalculator salaryCalculator= new SalaryCalculator();
 //Console.WriteLine($"low salary{salaryCalculator.Calculate(1000,SalaryType.Low)}");
@@ -22,16 +22,19 @@ using Solid.App.LSPGod;
 //Console.WriteLine($"high salary: {salaryCalculator.Calculate(1000, new HighSalaryCalculate2().Calculate)}");
 
 
-BasePhone phone = new IPhone();
+//BasePhone phone = new IPhone();
 
-phone.Call();
-((IPhoto)phone).TakePhoto();
+//phone.Call();
+//((IPhoto)phone).TakePhoto();
 
-BasePhone phone2 = new Nokia3310();
+//BasePhone phone2 = new Nokia3310();
 
-phone2.Call();
+//phone2.Call();
 //phone2.TakePhoto();
 
+
+var productService = new ProductService(new ProductRepositoryFromsql());
+productService.GetAll().ForEach(x => Console.WriteLine(x));
 
 
 
