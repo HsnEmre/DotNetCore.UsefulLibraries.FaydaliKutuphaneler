@@ -8,7 +8,12 @@ namespace FluentValidation.App.Mapping
     {
         public CustomerProfile()
         {
-            CreateMap<Customer, CustomerDto>()
+
+
+            CreateMap<CreditCard, CustomerDto>();
+
+
+            CreateMap<Customer, CustomerDto>().IncludeMembers(x => x.CreditCard)
                 .ForMember(
                 dest => dest.isim,
                 opt => opt.MapFrom(
@@ -19,8 +24,9 @@ namespace FluentValidation.App.Mapping
                 .ForMember(x => x.yaş,
                 x => x.MapFrom(
                     x => x.Age))
-                .ForMember(dest => dest.FullName, x => x.MapFrom(x => x.FullName2()))
-                .ForMember(dest => dest.CreditCardNumber, opt => opt.MapFrom(x => x.CreditCard.Number)).ReverseMap();
+                //.ForMember(dest => dest.FullName, x => x.MapFrom(x => x.FullName2()))
+                //.ForMember(dest => dest.CreditCardNumber, opt => opt.MapFrom(x => x.CreditCard.Number))
+                .ReverseMap();
         }
     }
 }
