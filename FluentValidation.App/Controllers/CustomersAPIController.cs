@@ -25,7 +25,8 @@ public class CustomersAPIController : ControllerBase
             Id = 1,
             Name = "Hasan",
             Mail = "asd@gmail.com",
-            Age = 27
+            Age = 27,
+            CreditCard=new CreditCard { Number="1234",ValidDate=DateTime.Now}
         };
 
 

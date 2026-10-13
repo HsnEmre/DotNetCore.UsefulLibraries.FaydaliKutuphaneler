@@ -18,7 +18,9 @@ namespace FluentValidation.App.Mapping
                     x => x.Mail))
                 .ForMember(x => x.yaş,
                 x => x.MapFrom(
-                    x => x.Age)).ReverseMap();
+                    x => x.Age))
+                .ForMember(dest => dest.FullName, x => x.MapFrom(x => x.FullName2()))
+                .ForMember(dest => dest.CreditCardNumber, opt => opt.MapFrom(x => x.CreditCard.Number)).ReverseMap();
         }
     }
 }
